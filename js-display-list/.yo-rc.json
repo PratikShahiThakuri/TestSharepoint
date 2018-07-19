@@ -3,8 +3,8 @@
     "isCreatingSolution": true,
     "environment": "spo",
     "version": "1.5.1",
-    "libraryName": "helloworld-webpart",
-    "libraryId": "71f59908-b8dc-4739-8825-cfcfab2e40f5",
+    "libraryName": "js-display-list",
+    "libraryId": "b2019462-cf53-4345-bb7b-85d85aa567e5",
     "packageManager": "npm",
     "componentType": "webpart"
   }
