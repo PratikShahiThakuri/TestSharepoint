@@ -1,0 +1,157 @@
+* {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box!important;
+}
+* {
+  box-sizing: border-box
+}
+/* Slideshow container */
+
+.containers {
+  max-width: 1000px;
+  min-width: 350px;
+  min-height: 160px;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+.mySlides {
+  display: none;
+  transition: 1s all ease-in-out;
+  -webkit-animation: slideIn 1s forwards;
+  -moz-animation: slideIn 1s forwards;
+  animation: slideIn 1s forwards;
+}
+
+/* Next & previous buttons */
+.prev{
+   left:0;
+    border-radius: 0 3px 3px 0;
+}
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s all ease;               
+}
+/* Position the "next button" to the right */
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(900px);
+  }
+}
+@-moz-keyframes slideIn {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(900px);
+  }
+}
+@keyframes slideIn {
+  0% {
+      transform: translateX(-900px);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+// @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+// .jsEmployeeSpotlight {
+//   .container {
+//     max-width: 700px;
+//     margin: 0px auto;
+//     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+//   }
+
+//   .row {
+//     @include ms-Grid-row;
+//     @include ms-fontColor-white;
+//     background-color: $ms-color-themeDark;
+//     padding: 20px;
+//   }
+
+//   .column {
+//     @include ms-Grid-col;
+//     @include ms-lg10;
+//     @include ms-xl8;
+//     @include ms-xlPush2;
+//     @include ms-lgPush1;
+//   }
+
+//   .title {
+//     @include ms-font-xl;
+//     @include ms-fontColor-white;
+//   }
+
+//   .subTitle {
+//     @include ms-font-l;
+//     @include ms-fontColor-white;
+//   }
+
+//   .description {
+//     @include ms-font-l;
+//     @include ms-fontColor-white;
+//   }
+
+//   .button {
+//     // Our button
+//     text-decoration: none;
+//     height: 32px;
+
+//     // Primary Button
+//     min-width: 80px;
+//     background-color: $ms-color-themePrimary;
+//     border-color: $ms-color-themePrimary;
+//     color: $ms-color-white;
+
+//     // Basic Button
+//     outline: transparent;
+//     position: relative;
+//     font-family: "Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+//     -webkit-font-smoothing: antialiased;
+//     font-size: $ms-font-size-m;
+//     font-weight: $ms-font-weight-regular;
+//     border-width: 0;
+//     text-align: center;
+//     cursor: pointer;
+//     display: inline-block;
+//     padding: 0 16px;
+
+//     .label {
+//       font-weight: $ms-font-weight-semibold;
+//       font-size: $ms-font-size-m;
+//       height: 32px;
+//       line-height: 32px;
+//       margin: 0 4px;
+//       vertical-align: top;
+//       display: inline-block;
+//     }
+//   }
+// }

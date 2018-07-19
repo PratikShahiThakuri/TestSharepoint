@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "js-employee-spotlight-client-side-solution",
+    "id": "5d589c6a-1f99-491e-8475-e75c87cf65c3",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/js-employee-spotlight.sppkg"
+  }
+}
