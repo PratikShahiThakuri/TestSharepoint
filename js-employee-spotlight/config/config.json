@@ -6,7 +6,8 @@
       "components": [
         {
           "entrypoint": "./lib/webparts/jsEmployeeSpotlight/JsEmployeeSpotlightWebPart.js",
-          "manifest": "./src/webparts/jsEmployeeSpotlight/JsEmployeeSpotlightWebPart.manifest.json"
+          "manifest": "./src/webparts/jsEmployeeSpotlight/JsEmployeeSpotlightWebPart.manifest.json",
+          "outputPath": "./dist/js-employee-spotlight-web-part.bundle.js"
         }
       ]
     }
@@ -15,7 +16,7 @@
     "sp-client-custom-fields": "node_modules/sp-client-custom-fields/dist/sp-client-custom-fields.bundle.js"
   },
   "localizedResources": {
-    "JsEmployeeSpotlightWebPartStrings": "lib/webparts/jsEmployeeSpotlight/loc/{locale}.js",
-    "sp-client-custom-fields/strings": "../node_modules/sp-client-custom-fields/lib/loc/{locale}.js"
+    "JsEmployeeSpotlightWebPartStrings": "./webparts/jsEmployeeSpotlight/loc/{locale}.js",
+    "sp-client-custom-fields/strings": "node_modules/sp-client-custom-fields/lib/loc/{locale}.js"
   }
 }

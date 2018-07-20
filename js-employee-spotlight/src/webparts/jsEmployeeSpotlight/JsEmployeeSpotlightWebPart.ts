@@ -18,8 +18,8 @@ import {IEmployeeSpotlightWebPartProps} from './IEmployeeSpotlightWebPartProps'
 import { SliderHelper } from './Helper';
 import { SPHttpClient } from '../../../node_modules/@microsoft/sp-http';
 
-import { PropertyFieldColorPickerMini } from 'sp-client-custom-fields/lib/PropertyFieldColorPickerMini';
-import * as _ from '../../../node_modules/@types/lodash';
+import { PropertyFieldColorPickerMini } from '../../../node_modules/sp-client-custom-fields/lib/PropertyFieldColorPickerMini';
+import * as _ from 'lodash';
 
 // export interface IJsEmployeeSpotlightWebPartProps {
 //   description: string;
@@ -102,6 +102,9 @@ jQuery(document).ready(()=>{
 public render(): void {
     this.domElement.innerHTML = `
       <div id="spListContainer"/>`;
+      this._renderSpotlightTemplateAsync();
+      this._renderSpotlightDataAsync();
+      
       
   }
 /**
@@ -403,7 +406,7 @@ private _validateFiledValue(value:string):string{
                   disabled: false,
                   onPropertyChange: this.onPropertyPaneFieldChanged.bind(this.properties),
                   properties: this.properties,
-                  render:this.render.bind(this),
+                  render:this.render.bind(this.properties),
                   onGetErrorMessage: null,
                   deferredValidationTime: 0,
                   key: 'spotlightFontColorFieldId'

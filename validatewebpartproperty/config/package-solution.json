@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "validatewebpartproperty-client-side-solution",
+    "id": "149892dc-6e38-4a7e-8a6a-b2abd569b999",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/validatewebpartproperty.sppkg"
+  }
+}

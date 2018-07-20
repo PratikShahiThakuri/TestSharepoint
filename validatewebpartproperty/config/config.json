@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "validate-web-partproperty-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/validateWebPartproperty/ValidateWebPartpropertyWebPart.js",
+          "manifest": "./src/webparts/validateWebPartproperty/ValidateWebPartpropertyWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ValidateWebPartpropertyWebPartStrings": "lib/webparts/validateWebPartproperty/loc/{locale}.js"
+  }
+}

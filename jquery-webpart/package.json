@@ -1,5 +1,5 @@
 {
-  "name": "js-employee-spotlight",
+  "name": "jquery-webpart",
   "version": "0.0.1",
   "private": true,
   "engines": {
@@ -16,19 +16,19 @@
     "@microsoft/sp-office-ui-fabric-core": "1.5.1",
     "@microsoft/sp-webpart-base": "1.5.1",
     "@types/es6-promise": "0.0.33",
+    "@types/jquery": "^2.0.49",
+    "@types/jqueryui": "^1.12.2",
     "@types/webpack-env": "1.13.1",
-    "jquery": "^3.3.1",
-    "lodash": "^4.17.10",
-    "sp-client-custom-fields": "^1.3.7"
+    "jquery": "^2.2.4",
+    "jqueryui": "^1.11.1"
   },
   "devDependencies": {
     "@microsoft/sp-build-web": "1.5.1",
     "@microsoft/sp-module-interfaces": "1.5.1",
     "@microsoft/sp-webpart-workbench": "1.5.1",
+    "gulp": "~3.9.1",
     "@types/chai": "3.4.34",
-    "@types/lodash": "^4.14.112",
     "@types/mocha": "2.2.38",
-    "ajv": "~5.2.2",
-    "gulp": "~3.9.1"
+    "ajv": "~5.2.2"
   }
 }
