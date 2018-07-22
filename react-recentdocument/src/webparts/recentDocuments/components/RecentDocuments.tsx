@@ -1,7 +1,9 @@
 import * as React from 'react';
 import styles from './RecentDocuments.module.scss';
-import { IRecentDocumentsProps } from '../IRecentDocumentsProps';
+import { IRecentDocumentsProps } from './IRecentDocumentsProps';
 import { escape } from '@microsoft/sp-lodash-subset';
+import { IDocument } from '../../../documentsServices';
+import { IRecentDocumentProps } from '../IRecentDocumentProps';
 import {
   DocumentCard,
   DocumentCardType,
@@ -9,8 +11,7 @@ import {
   DocumentCardTitle,
   DocumentCardActivity
  } from 'office-ui-fabric-react';
-import { IDocument } from '../IDocument';
-export default class RecentDocuments extends React.Component<IRecentDocumentsProps, void> {
+export default class RecentDocuments extends React.Component<IRecentDocumentProps, {}> {
   public render(): React.ReactElement<IRecentDocumentsProps> {
     const documents: JSX.Element[] = this.props.documents.map((document: IDocument, index: number, array: IDocument[]): JSX.Element => {
       return (
@@ -44,4 +45,4 @@ export default class RecentDocuments extends React.Component<IRecentDocumentsPro
       </div>
     );
   }
- }
+}

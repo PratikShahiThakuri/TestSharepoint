@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "42cd62c6-97bc-4b2a-b1f1-dab6567a7749",
+  "id": "653934eb-24b7-464d-9f68-46db4e16e0cf",
   "alias": "RecentDocumentsWebPart",
   "componentType": "WebPart",
 
@@ -16,11 +16,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "Recent Documents" },
-    "description": { "default": "Recent Documents description" },
+    "title": { "default": "Recent documents" },
+    "description": { "default": "Recent documents description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      
+     
     }
   }]
 }

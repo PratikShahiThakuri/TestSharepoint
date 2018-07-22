@@ -3,8 +3,8 @@
     "isCreatingSolution": true,
     "environment": "spo",
     "version": "1.5.1",
-    "libraryName": "react-recentdocuments",
-    "libraryId": "34190e22-2bcf-47c7-9da9-bcd007680fe6",
+    "libraryName": "react-recentdocument",
+    "libraryId": "53c61e5f-8e88-4339-b2bd-8f7ae00d4e88",
     "packageManager": "npm",
     "componentType": "webpart"
   }

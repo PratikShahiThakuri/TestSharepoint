@@ -1,4 +1,4 @@
-## react-recentdocuments
+## react-recentdocument
 
 This is where you include your WebPart documentation.
 
