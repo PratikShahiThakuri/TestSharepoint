@@ -25,6 +25,15 @@ export interface ISPLists{
 export interface ISPList{
   Title:string;
   Id:string;
+  File:File;
+}
+export interface File{
+  Name:string;
+  Length:number;
+  Created:string;
+  Modified:string;
+  ServerRelativeUrl:string;
+
 }
 export interface ISPOption{
   Id:string;
@@ -87,7 +96,7 @@ export default class JsDisplayListWebPart extends BaseClientSideWebPart<IJsDispl
       });
   }
   private _getListData(listName:string):Promise<ISPLists>{
-    const queryString:string ='$select=Title,ID,Created,Author/ID,Author/Title&$expand=Author/ID,Author/Title';
+    const queryString:string ='$select=Title,ID,Created,Modified,Author/ID,Author/Title,File&$expand=Author/ID,Author/Title,File';
     return this.context.spHttpClient
     .get(`${this.context.pageContext.web.absoluteUrl}/_api/web/lists/GetByTitle('${listName}')/items?${queryString}`,
     SPHttpClient.configurations.v1
@@ -101,6 +110,7 @@ export default class JsDisplayListWebPart extends BaseClientSideWebPart<IJsDispl
   })
   }
   private _renderList(items:ISPList[]):void{
+   
     let html:string='';
     if(!items){
       html='<br/><p class="ms-font-m-plus">The selected list doesnot exist.</p>';
@@ -108,25 +118,48 @@ export default class JsDisplayListWebPart extends BaseClientSideWebPart<IJsDispl
       html='<br/><p class="ms-font-m-plus"> The selected list is empty</p>';
     }else{
       items.forEach((item:ISPList)=>{
+        console.log(item);
         let title :string='';
+        let size :string='';
+        let sizeHtml:string='';
+        let link : string='';
+        let linkhtml:string='';
         if(item.Title===null){
+         if(item.File===null && item.Title===null){
           title="Missing title for item with ID= "+ item.Id;
-        }else{
+        }else {
+          title=item.File.Name;
+          size = (item.File.Length/1024).toFixed(2);
+          link = item.File.ServerRelativeUrl;
+          sizeHtml=`<div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2 ms-font-m">
+          ${size}
+        </div>`
+        linkhtml =`<div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2 ms-font-m">
+        <a href="${link}">Link</a>
+      </div>`
+        }
+        }
+        else{
           title=item.Title;
         }
         let created:any =item["Created"];
+        let modified :any =item["Modified"]
         html+=`
         <div class ="${styles.row} ms-Grid-row ">
-        <div class=" ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg4 ms-font-m">
+        <div class=" ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2 ms-font-m">
         ${title}               
         </div>
-        <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg4 ms-font-m">
-        ${created.substring(0,created.length -1).replace('T','')}
+        <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2 ms-font-m">
+        ${created.substring(0,created.length -1).replace('T',' ')}
         </div>
-        <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg4 ms-font-m">
+        <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2 ms-font-m">
+        ${modified.substring(0,created.length -1).replace('T',' ')}
+        </div>
+        <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2 ms-font-m">
         ${item['Author'].Title}
         </div>
-        
+       ${sizeHtml}
+        ${linkhtml}
         
         </div>
         
@@ -149,9 +182,13 @@ export default class JsDisplayListWebPart extends BaseClientSideWebPart<IJsDispl
           </p>
           <div class="ms-Grid ${styles.jsDisplayList}">
              <div class="ms-Grid-row">
-                <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg4 ms-bgColor-themeLight  ms-font-m-plus">Title</div>
-                <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg4 ms-bgColor-themeLight  ms-font-m-plus">Created</div>
-                <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg4  ms-bgColor-themeLight  ms-font-m-plus">Created By</div>
+                <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2 ms-bgColor-themeLight  ms-font-m-plus">Title</div>
+                <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2 ms-bgColor-themeLight  ms-font-m-plus">Created</div>
+                <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2 ms-bgColor-themeLight  ms-font-m-plus">Modified</div>
+                <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2  ms-bgColor-themeLight  ms-font-m-plus">Created By</div>
+                <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2  ms-bgColor-themeLight  ms-font-m-plus">Size</div>
+                <div class="ms-Grid-col ms-u-sm5 ms-u-md3 ms-u-lg2  ms-bgColor-themeLight  ms-font-m-plus">Url</div>
+
               </div>
               <hr />
               <div id="spListContainer"></div>
@@ -168,7 +205,7 @@ export default class JsDisplayListWebPart extends BaseClientSideWebPart<IJsDispl
       //debugger;
       
       this._getListData(this.properties.listTitle).then((response) => {
-       
+      
         this._renderList(response.value);
 
       }).catch((err) => {

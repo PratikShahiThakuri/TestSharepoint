@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "e0e199de-07d5-4b1a-b3ed-8d2be25ff85d",
+  "id": "3dd08bf2-cce4-41ec-b13a-3f71436bf75f",
   "alias": "JsDisplayListWebPart",
   "componentType": "WebPart",
 
@@ -16,11 +16,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "js-display-list" },
-    "description": { "default": "js-display-list description" },
+    "title": { "default": "JsDisplayList" },
+    "description": { "default": "JsDisplayList description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "js-display-list"
+      "description": "JsDisplayList"
     }
   }]
 }
